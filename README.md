@@ -1,71 +1,48 @@
-# Sudoku CSP 🧩
+# Sudoku CSP - AC-3 and Backtracking Solver
 
-## 📌 Overview
-Welcome to the **Sudoku CSP**, a powerful AI-based solver that utilizes **Constraint Satisfaction Problems (CSP)** and the **AC-3 Algorithm** to enforce arc-consistency on a 9x9 Sudoku grid. If the AC-3 algorithm does not fully solve the puzzle, our **backtracking algorithm** kicks in to guarantee a complete solution.
+Solves 9x9 Sudoku by treating it as a constraint satisfaction problem. AC-3 prunes each cell's options first, and backtracking finishes any cells AC-3 cannot settle on its own.
 
-## 🎯 Features
-✅ **Solves 9x9 Sudoku puzzles efficiently using AI techniques**  
-✅ **Implements AC-3 Algorithm for arc consistency**  
-✅ **Uses Backtracking for complete solving when needed**  
-✅ **Dynamic domain reduction based on Sudoku constraints**  
-✅ **Step-by-step visualization of the queue length during AC-3 execution**  
-✅ **Python-based with clean, modular code**  
+## At a Glance
 
-## ⚡ Quick Start
-### 1️⃣ Clone the Repository
-```bash
-   git clone https://github.com/yourusername/Sudoku-CSP.git
-   cd Sudoku-CSP
-```
+- **Stack:** Python (standard library only)
+- **Context:** CP 468 Artificial Intelligence, Wilfrid Laurier University (Assignment 2, Group 8)
+- **State:** Complete
 
-### 2️⃣ Install Dependencies
-```bash
-   pip install -r requirements.txt
-```
+## Features
 
-### 3️⃣ Run the Program
-```bash
-   python sudoku_csp.py test_sudoku.txt
-```
+- Models every cell as a variable with a domain of 1 to 9
+- AC-3 enforces arc consistency across rows, columns and 3x3 boxes
+- Falls back to backtracking search when AC-3 leaves cells open
+- Prints the board before AC-3, after AC-3, and once solved
 
-## 📊 Sample Output
-```
-📜 Original Sudoku:
-5 3 . . 7 . . . .
-6 . . 1 9 5 . . .
-. 9 8 . . . . 6 .
-...
-
-🔍 Running AC-3 Algorithm...
-Step 1: Queue length = 1620
-Step 2: Queue length = 1619
-...
-
-✅ AC-3 successfully solved the puzzle!
-
-🏁 Final Sudoku Solution:
-5 3 4 6 7 8 9 1 2
-6 7 2 1 9 5 3 4 8
-...
-```
-
-## 🏗️ Project Structure
-```
-📂 Sudoku-CSP/
-│── 📜 sudoku.py             # AC-3 & Backtracking Sudoku Solver
-│── 📜 README.md             # Overview
-│── 📜 CP468-A2-8.pdf        # Project Documentation 
+## Project Structure
 
 ```
+sudoku-csp/
+├── sudoku.py                 # AC-3, backtracking and the solve loop
+└── sudoku-csp-overview.pdf   # Write-up of the approach and results
+```
 
+## Running Locally
 
-## 📜 License
-Developed as part of **CP 468 - Artificial Intelligence** at **Wilfrid Laurier University**.
-⚠️ Do Not Copy
+1. Clone the repo and move into the solver folder:
+   ```bash
+   git clone https://github.com/nakulpatel0306/sudoku-csp-algorithm.git
+   cd sudoku-csp-algorithm/sudoku-csp
+   ```
+2. Add a `sudoku.txt` next to `sudoku.py`. Use nine lines of nine space-separated digits, with `0` for blank cells:
+   ```
+   5 3 0 0 7 0 0 0 0
+   6 0 0 1 9 5 0 0 0
+   ...
+   ```
+3. Run it:
+   ```bash
+   python sudoku.py
+   ```
 
----
+## Team
 
-## 👥 Team Members
-👨‍💻 **Romin Gandhi** | 👨‍💻 **Jenish Bharucha** | 👨‍💻 **Nakul Patel** | 👨‍💻 **Arsh Patel**  
-👨‍💻 **Dhairya Patel** | 👨‍💻 **Paarth Bagga** | 👨‍💻 **Devarth Trivedi** | 👨‍💻 **Gleb Silin**  
-👨‍💻 **Emmet Currie** | 👨‍💻 **Parker Riches**  
+Romin Gandhi, Jenish Bharucha, Nakul Patel, Arsh Patel, Dhairya Patel, Paarth Bagga, Devarth Trivedi, Gleb Silin, Emmet Currie, Parker Riches
+
+Built as coursework for CP 468 at Wilfrid Laurier University. Please do not copy for academic submissions.
