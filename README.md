@@ -1,4 +1,4 @@
-# Sudoku CSP - AC-3 and Backtracking Solver
+# Sudoku CSP - AC-3 And Backtracking Solver
 
 Solves 9x9 Sudoku by treating it as a constraint satisfaction problem. AC-3 prunes each cell's options first, and backtracking finishes any cells AC-3 cannot settle on its own.
 
@@ -13,7 +13,7 @@ Solves 9x9 Sudoku by treating it as a constraint satisfaction problem. AC-3 prun
 - Models every cell as a variable with a domain of 1 to 9
 - AC-3 enforces arc consistency across rows, columns and 3x3 boxes
 - Falls back to backtracking search when AC-3 leaves cells open
-- Prints the board before AC-3, after AC-3, and once solved
+- Prints the board before AC-3, after AC-3, and once solved, with `.` for blank cells
 
 ## Project Structure
 
@@ -34,11 +34,18 @@ sudoku-csp/
    ```
    5 3 0 0 7 0 0 0 0
    6 0 0 1 9 5 0 0 0
-   ...
+   0 9 8 0 0 0 0 6 0
+   8 0 0 0 6 0 0 0 3
+   4 0 0 8 0 3 0 0 1
+   7 0 0 0 2 0 0 0 6
+   0 6 0 0 0 0 2 8 0
+   0 0 0 4 1 9 0 0 5
+   0 0 0 0 8 0 0 7 9
    ```
+   AC-3 alone solves this one. Harder puzzles fall through to backtracking.
 3. Run it:
    ```bash
-   python sudoku.py
+   python3 sudoku.py
    ```
 
 ## Team
